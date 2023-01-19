@@ -31,12 +31,3 @@ deploy_dev
 [production:children]
 prod_svr
 
-#[Development_Server]
-
-#[DB_servers]
-
-#[Test_Server]
-
-#[Deployment_Server]
-
-#[Production_Server]
