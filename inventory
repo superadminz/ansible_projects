@@ -13,7 +13,6 @@ mysql01
 mysql01
 
 [deploy_dev]
-dev
 ns
 [prod_svr]
 aapanel
@@ -30,4 +29,3 @@ db_prod
 deploy_dev
 [production:children]
 prod_svr
-
