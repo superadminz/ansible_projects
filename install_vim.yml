@@ -4,27 +4,26 @@
   become: true
   tasks: 
 
-  - name: update repository index
-    apt:
-      update_cache: yes
-      state= latest
-    when: ansible_distribution in ["Debian", "ubuntu"]
 
-  - name: install vim-nox package
+  - name: install simple packages
+    tags: apache,apache2,ubuntu
     apt:  
-      name: vim-nox
+      name:
+       - vim-nox
+       - apache2
+       - libapache2-mod-php
       state= latest
+      update_cache: yes
     when: ansible_distribution in ["Debian", "ubuntu"]
 
 
-  - name: update repository index
+  - name: install simple packages
+    tags: apache,centos,httpd
     dnf:
-      update_cache: yes
+      name:
+        - vim-nox
+        - httpd
+        - php
       state= latest
-    when: ansible_distribution == "Centos"
-
-  - name: install vim-nox package
-    dnf:
-      name: vim-nox
-      state= latest
+      update_cache= yes
     when: ansible_distribution == "Centos"
