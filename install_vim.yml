@@ -8,8 +8,23 @@
     apt:
       update_cache: yes
       state= latest
+    when: ansible_distribution in ["Debian", "ubuntu"]
 
   - name: install vim-nox package
     apt:  
       name: vim-nox
       state= latest
+    when: ansible_distribution in ["Debian", "ubuntu"]
+
+
+  - name: update repository index
+    dnf:
+      update_cache: yes
+      state= latest
+    when: ansible_distribution == "Centos"
+
+  - name: install vim-nox package
+    dnf:
+      name: vim-nox
+      state= latest
+    when: ansible_distribution == "Centos"
